@@ -1,5 +1,5 @@
 {% set name = "modflow-setup" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/modflow-setup-{{ version }}.tar.gz
-  sha256: 71612c3866647253e852d2dd8b2f3e9f6e21e686771b04ccb3133a01eea7095c
+  sha256: d94e869ba7f14bac6e4dc586248e986ec9bc96d8078aa2f81f9f139373a43487
 
 build:
   entry_points:
