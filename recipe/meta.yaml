@@ -1,3 +1,4 @@
+{% set python_min = '3.11' %}
 {% set name = "modflow-setup" %}
 {% set version = "0.5.0" %}
 
@@ -6,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/modflow-setup-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/modflow-setup-{{ version }}.tar.gz
   sha256: d94e869ba7f14bac6e4dc586248e986ec9bc96d8078aa2f81f9f139373a43487
 
 build:
@@ -14,15 +15,15 @@ build:
     - get-modflow = flopy.utils.get_modflow:cli_main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.11
+    - python {{ python_min }}
     - setuptools >=61
     - pip
   run:
-    - python >=3.11
+    - python >={{ python_min }}
     - geopandas
     - gis-utils
     - fiona
@@ -49,6 +50,7 @@ test:
     - get-modflow --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/DOI-USGS/modflow-setup.git
