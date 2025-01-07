@@ -1,21 +1,21 @@
-{% set python_min = '3.11' %}
+{% set python_min = "3.11" %}
 {% set name = "modflow-setup" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/modflow-setup-{{ version }}.tar.gz
-  sha256: d94e869ba7f14bac6e4dc586248e986ec9bc96d8078aa2f81f9f139373a43487
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 050589657c29905e253670609486095e292f37936a4999065da914c5f1aefbfd
 
 build:
   entry_points:
     - get-modflow = flopy.utils.get_modflow:cli_main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
