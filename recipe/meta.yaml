@@ -1,6 +1,6 @@
 {% set python_min = "3.11" %}
 {% set name = "modflow-setup" %}
-{% set version = "0.6.0" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 050589657c29905e253670609486095e292f37936a4999065da914c5f1aefbfd
+  sha256: 1505bee3cea7f299988ffb9d5c8f02a8c763221318cdc25841df8f8c065ea11e
 
 build:
   entry_points:
